@@ -41,6 +41,8 @@ namespace SemestralProjectV2
             this.textBoxAns = new System.Windows.Forms.TextBox();
             this.rightAnswersDGV = new System.Windows.Forms.DataGridView();
             this.checkBtn = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.pointsLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.rightAnswersDGV)).BeginInit();
             this.SuspendLayout();
             // 
@@ -164,7 +166,7 @@ namespace SemestralProjectV2
             // checkBtn
             // 
             this.checkBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBtn.Location = new System.Drawing.Point(466, 285);
+            this.checkBtn.Location = new System.Drawing.Point(466, 270);
             this.checkBtn.Name = "checkBtn";
             this.checkBtn.Size = new System.Drawing.Size(108, 26);
             this.checkBtn.TabIndex = 11;
@@ -172,11 +174,33 @@ namespace SemestralProjectV2
             this.checkBtn.UseVisualStyleBackColor = true;
             this.checkBtn.Click += new System.EventHandler(this.checkBtn_Click);
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(463, 310);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(74, 18);
+            this.label3.TabIndex = 12;
+            this.label3.Text = "POINTS:";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
+            // 
+            // pointsLabel
+            // 
+            this.pointsLabel.AutoSize = true;
+            this.pointsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pointsLabel.Location = new System.Drawing.Point(574, 310);
+            this.pointsLabel.Name = "pointsLabel";
+            this.pointsLabel.Size = new System.Drawing.Size(0, 18);
+            this.pointsLabel.TabIndex = 13;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(616, 640);
+            this.Controls.Add(this.pointsLabel);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.checkBtn);
             this.Controls.Add(this.rightAnswersDGV);
             this.Controls.Add(this.textBoxAns);
@@ -191,6 +215,7 @@ namespace SemestralProjectV2
             this.Controls.Add(this.label1);
             this.Name = "Form1";
             this.Text = "PES VRES";
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.rightAnswersDGV)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -211,6 +236,8 @@ namespace SemestralProjectV2
         private System.Windows.Forms.TextBox textBoxAns;
         private System.Windows.Forms.DataGridView rightAnswersDGV;
         private System.Windows.Forms.Button checkBtn;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label pointsLabel;
     }
 }
 

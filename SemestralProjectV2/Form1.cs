@@ -20,10 +20,7 @@ namespace SemestralProjectV2
         {
             InitializeComponent();
             generateQuestionBtn.Enabled = false;
-            
-            
-
-
+            points = 0;
         }
 
         private void checkBtn_Click(object sender, EventArgs e)
@@ -38,10 +35,11 @@ namespace SemestralProjectV2
                 if (found) savedI = i;
             }
 
-            Console.WriteLine(found);
+            
             if (savedI==-1) return;
 
             points += selectedQuestions[rando].Answers[savedI].points;
+            pointsLabel.Text = points.ToString();
             rightAnswers.Add(selectedQuestions[rando].Answers[savedI]);
             rightAnswersDGV.DataSource = rightAnswers;
             selectedQuestions[rando].Answers.RemoveAt(savedI);
@@ -63,7 +61,8 @@ namespace SemestralProjectV2
         BindingList<Answer> rightAnswers;
         private void generateQuestionBtn_Click(object sender, EventArgs e)
         {
-            points = 0;
+            
+            pointsLabel.Text = points.ToString();
             j = 10;
             rightAnswersDGV.DataSource = null;
             rightAnswers = new BindingList<Answer>();
@@ -159,6 +158,14 @@ namespace SemestralProjectV2
 
         }
 
-        
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
