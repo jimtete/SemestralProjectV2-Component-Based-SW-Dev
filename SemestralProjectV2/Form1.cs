@@ -15,16 +15,58 @@ namespace SemestralProjectV2
 
         
         BindingList<Question> selectedQuestions = new BindingList<Question>();
+        
         public Form1()
         {
             InitializeComponent();
             generateQuestionBtn.Enabled = false;
             
+            
+
+
         }
 
+        private void checkBtn_Click(object sender, EventArgs e)
+        {
+            String answer = textBoxAns.Text.ToString();
+            if (Equals(answer,"NA")) return;
+            bool found = false;
+            int savedI = -1;
+            for (int i = 0; i < j; i++)
+            {
+                found = CheckAnswer(answer.ToLower(), selectedQuestions[rando].Answers[i]);
+                if (found) savedI = i;
+            }
 
+            Console.WriteLine(found);
+            if (savedI==-1) return;
+
+            points += selectedQuestions[rando].Answers[savedI].points;
+            rightAnswers.Add(selectedQuestions[rando].Answers[savedI]);
+            rightAnswersDGV.DataSource = rightAnswers;
+            selectedQuestions[rando].Answers.RemoveAt(savedI);
+            j--;
+            
+            
+        }
+        int points;
+        int j;
+        bool CheckAnswer(String key, Answer answer)
+        {
+
+            
+            if (Equals(key, answer.text.ToLower())) return true;
+            if (Equals(key, answer.backupText.ToLower())) return true;
+            return false;
+        }
+
+        BindingList<Answer> rightAnswers;
         private void generateQuestionBtn_Click(object sender, EventArgs e)
         {
+            points = 0;
+            j = 10;
+            rightAnswersDGV.DataSource = null;
+            rightAnswers = new BindingList<Answer>();
             selectedQuestions.Clear();
             if (checkBoxGeography.Checked)
             {
@@ -48,10 +90,12 @@ namespace SemestralProjectV2
                 addQuestion(20, 24);
             }
 
-            int rando = new Random().Next(0, selectedQuestions.Count);
+            rando = new Random().Next(0, selectedQuestions.Count);
 
             textBoxAnswer.Text = selectedQuestions[rando].question;
         }
+
+        int rando;
 
         public void addQuestion(int a,int b)
         {
@@ -114,5 +158,7 @@ namespace SemestralProjectV2
         {
 
         }
+
+        
     }
 }

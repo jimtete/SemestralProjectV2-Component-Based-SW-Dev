@@ -38,10 +38,10 @@ namespace SemestralProjectV2
             this.generateQuestionBtn = new System.Windows.Forms.Button();
             this.textBoxAnswer = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.textBoxAns = new System.Windows.Forms.TextBox();
+            this.rightAnswersDGV = new System.Windows.Forms.DataGridView();
             this.checkBtn = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rightAnswersDGV)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -145,21 +145,21 @@ namespace SemestralProjectV2
             this.label2.Text = "ANSWER: ";
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
-            // textBox1
+            // textBoxAns
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(137, 285);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(313, 26);
-            this.textBox1.TabIndex = 9;
+            this.textBoxAns.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxAns.Location = new System.Drawing.Point(137, 285);
+            this.textBoxAns.Name = "textBoxAns";
+            this.textBoxAns.Size = new System.Drawing.Size(313, 26);
+            this.textBoxAns.TabIndex = 9;
             // 
-            // dataGridView1
+            // rightAnswersDGV
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(44, 361);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(530, 248);
-            this.dataGridView1.TabIndex = 10;
+            this.rightAnswersDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.rightAnswersDGV.Location = new System.Drawing.Point(44, 361);
+            this.rightAnswersDGV.Name = "rightAnswersDGV";
+            this.rightAnswersDGV.Size = new System.Drawing.Size(530, 248);
+            this.rightAnswersDGV.TabIndex = 10;
             // 
             // checkBtn
             // 
@@ -170,6 +170,7 @@ namespace SemestralProjectV2
             this.checkBtn.TabIndex = 11;
             this.checkBtn.Text = "CHECK";
             this.checkBtn.UseVisualStyleBackColor = true;
+            this.checkBtn.Click += new System.EventHandler(this.checkBtn_Click);
             // 
             // Form1
             // 
@@ -177,8 +178,8 @@ namespace SemestralProjectV2
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(616, 640);
             this.Controls.Add(this.checkBtn);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.rightAnswersDGV);
+            this.Controls.Add(this.textBoxAns);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.textBoxAnswer);
             this.Controls.Add(this.generateQuestionBtn);
@@ -190,7 +191,7 @@ namespace SemestralProjectV2
             this.Controls.Add(this.label1);
             this.Name = "Form1";
             this.Text = "PES VRES";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rightAnswersDGV)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -207,8 +208,8 @@ namespace SemestralProjectV2
         private System.Windows.Forms.Button generateQuestionBtn;
         private System.Windows.Forms.TextBox textBoxAnswer;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.TextBox textBoxAns;
+        private System.Windows.Forms.DataGridView rightAnswersDGV;
         private System.Windows.Forms.Button checkBtn;
     }
 }
