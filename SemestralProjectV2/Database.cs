@@ -13,8 +13,12 @@ namespace SemestralProjectV2
 
         static Database()
         {
+
+            //Loads / Creates the game's questions
             addQuestions();
 
+
+            //Adds answers to the questions
             addAnswer("Greece", "Hellas", 2,0);
             addAnswer("Bulgaria", "Burgaria", 1, 0);
             addAnswer("North Macedonia", "Macedonia", 1, 0);
@@ -292,15 +296,20 @@ namespace SemestralProjectV2
 
         }
 
+        //This is used to set the answers for the questions without a backup answer
         static void addAnswer(String a, int points, int index)
         {
             addAnswer(a, "NA", points, index);
         }
+
+        //Sets the double answer to a question
         static void addAnswer(String a, String b, int points, int index)
         {
             Questions[index].Answers.Add(new Answer(a, b, points));
         }
 
+
+        //Creates the Questions and it adds them to the Binding List
         private static void addQuestions()
         {
             Questions.Add(new Question("Name 10 countries of the Balkan Peninsula", 1));

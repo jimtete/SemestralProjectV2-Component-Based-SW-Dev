@@ -8,21 +8,52 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace SemestralProjectV2
 {
     public partial class Form1 : Form
     {
 
-        
+        //Creating an empty binding list
         BindingList<Question> selectedQuestions = new BindingList<Question>();
         
         public Form1()
         {
             InitializeComponent();
             generateQuestionBtn.Enabled = false;
+
+            rightAnswersDGV.AutoGenerateColumns = false;
+            SetUpGrid();
+
+            //sets points to 0
             points = 0;
         }
 
+        //Sets up the dgv
+        private void SetUpGrid()
+        {
+            DataGridViewTextBoxColumn c1 = new DataGridViewTextBoxColumn();
+            DataGridViewTextBoxColumn c2 = new DataGridViewTextBoxColumn();
+
+            SetUpCollumn(c1,"Answer","text");
+            SetUpCollumn(c2,"Points","points");
+            AddItemToGrid(c1); AddItemToGrid(c2);
+        }
+        
+        //Sets up the dgv's collumn
+        private void SetUpCollumn(DataGridViewTextBoxColumn c, String header, String dataPropertyName)
+        {
+            c.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            c.HeaderText=header;
+            c.DataPropertyName = dataPropertyName;
+        }
+
+        //Adds collumns to the grid
+        private void AddItemToGrid(DataGridViewTextBoxColumn c)
+        {
+            rightAnswersDGV.Columns.Add(c);
+        }
+        
         private void checkBtn_Click(object sender, EventArgs e)
         {
             String answer = textBoxAns.Text.ToString();
@@ -38,6 +69,7 @@ namespace SemestralProjectV2
             
             if (savedI==-1) return;
 
+            
             points += selectedQuestions[rando].Answers[savedI].points;
             pointsLabel.Text = points.ToString();
             rightAnswers.Add(selectedQuestions[rando].Answers[savedI]);
@@ -47,6 +79,8 @@ namespace SemestralProjectV2
             
             
         }
+
+        //makes the variables universal
         int points;
         int j;
         bool CheckAnswer(String key, Answer answer)
@@ -58,7 +92,10 @@ namespace SemestralProjectV2
             return false;
         }
 
+        //This list is used for the data grid view
         BindingList<Answer> rightAnswers;
+
+        //It generates a random question of the selected checkbox's caregories.
         private void generateQuestionBtn_Click(object sender, EventArgs e)
         {
             
@@ -67,6 +104,8 @@ namespace SemestralProjectV2
             rightAnswersDGV.DataSource = null;
             rightAnswers = new BindingList<Answer>();
             selectedQuestions.Clear();
+
+
             if (checkBoxGeography.Checked)
             {
                 addQuestion(0, 4);
@@ -94,8 +133,10 @@ namespace SemestralProjectV2
             textBoxAnswer.Text = selectedQuestions[rando].question;
         }
 
+
         int rando;
 
+        //It adds a category's question to the selected questions
         public void addQuestion(int a,int b)
         {
             for (int i = a; i <= b; i++)
@@ -104,6 +145,7 @@ namespace SemestralProjectV2
             }
         }
 
+        //It calls the button enabler when the state of a checkbox is changed
         bool geoChecked = false;
         private void checkBoxGeography_CheckedChanged(object sender, EventArgs e)
         {
@@ -139,6 +181,7 @@ namespace SemestralProjectV2
             buttonEnabler();
         }
 
+        //It checks if any box is checked and enables the generate question button
         private void buttonEnabler()
         {
             if (geoChecked || techChecked || historyChecked || everyChecked || filmChecked)
@@ -152,16 +195,10 @@ namespace SemestralProjectV2
         }
 
         
+        
+        
 
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
+        
 
         private void Form1_Load(object sender, EventArgs e)
         {

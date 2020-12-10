@@ -145,7 +145,7 @@ namespace SemestralProjectV2
             this.label2.Size = new System.Drawing.Size(90, 18);
             this.label2.TabIndex = 8;
             this.label2.Text = "ANSWER: ";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
+            
             // 
             // textBoxAns
             // 
@@ -183,7 +183,7 @@ namespace SemestralProjectV2
             this.label3.Size = new System.Drawing.Size(74, 18);
             this.label3.TabIndex = 12;
             this.label3.Text = "POINTS:";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
+            
             // 
             // pointsLabel
             // 
